@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 from pytimeparse import parse
 
-load_dotenv('.env')
+
 TG_TOKEN = os.getenv('TELEGRAM_TOKEN')
 
 
@@ -43,6 +43,7 @@ def notify_timeout(chat_id):
 
 
 def main():
+    load_dotenv('.env')
     global bot
     bot = ptbot.Bot(TG_TOKEN)
     bot.reply_on_message(wait)
