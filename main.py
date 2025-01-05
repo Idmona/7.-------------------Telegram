@@ -4,9 +4,6 @@ from dotenv import load_dotenv
 from pytimeparse import parse
 
 
-TG_TOKEN = os.getenv('TELEGRAM_TOKEN')
-
-
 def render_progressbar(total, iteration, prefix='', suffix='', length=30, fill='█', zfill='░'):
     iteration = min(total, iteration)
     percent = "{0:.1f}"
@@ -44,6 +41,7 @@ def notify_timeout(chat_id):
 
 def main():
     load_dotenv('.env')
+    TG_TOKEN = os.getenv('TELEGRAM_TOKEN')
     global bot
     bot = ptbot.Bot(TG_TOKEN)
     bot.reply_on_message(wait)
