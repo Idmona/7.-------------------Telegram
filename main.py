@@ -41,9 +41,9 @@ def notify_timeout(chat_id):
 
 def main():
     load_dotenv('.env')
-    TG_TOKEN = os.getenv('TELEGRAM_TOKEN')
+    tg_token = os.getenv('telegram_token')
     global bot
-    bot = ptbot.Bot(TG_TOKEN)
+    bot = ptbot.Bot(tg_token)
     bot.reply_on_message(wait)
     bot.run_bot()
 
